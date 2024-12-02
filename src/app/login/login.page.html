@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Iniciar sesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+
+    <img src="./assets/logo.jpeg" alt="">
+    
+    <form [formGroup]="login">
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="usuario" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Clave</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+      <ion-button (click)="log()">Login</ion-button><br>
+      <ion-button >Olvidaste la clave?</ion-button>
+    </form>
+  </div>
+</ion-content>

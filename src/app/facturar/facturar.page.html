@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Facturacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="recepcion">
+    <ion-item>
+      <ion-label>Vehiculo</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="alert" placeholder="Seleccione la placa"  formControlName="placa" >
+            <ion-select-option value="ABC123">ABC123 - 1</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+      Nombre clente: Pepito Perez
+    </ion-item>
+    <ion-item>
+      Cedula cliente: 1011000111
+    </ion-item>
+    <ion-item>
+      Celular: 3001112233
+    </ion-item>
+    <ion-item>
+      Email: nagmail.com
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Factura/Orden de pedido</ion-label>
+      <ion-input formControlName="factura"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Medio de pago</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="alert" placeholder="Seleccione el medio de pago"  formControlName="mediopago" >
+            <ion-select-option *ngFor="let medio of medios.items" value="{{this.medio.id}}">{{this.medio.medio_pago}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">PIN</ion-label>
+      <ion-input formControlName="pin"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Solicitud</ion-label>
+      <ion-input formControlName="solicitud"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Observacion</ion-label>
+      <ion-textarea formControlName="observacion"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" (click)="enviar()">Enviar</ion-button>
+  </form>
+
+</ion-content>

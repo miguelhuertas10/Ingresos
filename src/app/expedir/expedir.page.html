@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Expedicion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="expedicion">
+
+    <ion-item>
+      <ion-label>Vehiculo</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="alert" placeholder="Seleccione la placa"  formControlName="placa" >
+            <ion-select-option value="ABC123">ABC123</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">PIN</ion-label>
+      <ion-input formControlName="pin"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Solicitud</ion-label>
+      <ion-input formControlName="solicitud"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">RUNT</ion-label>
+      <ion-input formControlName="runt"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Resultado de la revision</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="popover" placeholder="Seleccione el resultado"  formControlName="resultado" >
+            <ion-select-option value="Aprobado">Aprobado</ion-select-option>
+            <ion-select-option value="Rechazado">Rechazado</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Observacion</ion-label>
+      <ion-textarea formControlName="observacion"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" [disabled]="expedicion.invalid" (click)="enviar()">Enviar</ion-button>
+  </form>
+
+</ion-content>

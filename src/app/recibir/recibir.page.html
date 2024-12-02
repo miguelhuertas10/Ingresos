@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Recibir vehiculo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="recepcion">
+    <ion-item>
+      <ion-label position="floating">Placa</ion-label>
+      <ion-input formControlName="placa"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Modelo</ion-label>
+      <ion-input type="number" formControlName="modelo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cedula del cliente</ion-label>
+      <ion-input formControlName="cedula"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre del cliente</ion-label>
+      <ion-input formControlName="cliente"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Celular</ion-label>
+      <ion-input formControlName="celular"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo vehiculo</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select expand="block" interface="popover" placeholder="Seleccione el tipo de vehiculo"  formControlName="tipovehiculo" >
+            <ion-select-option *ngFor="let tipo of tipovehiculo.items" value="{{this.tipo.id}}">{{this.tipo.tipovehiculo}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo revision</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="popover" placeholder="Seleccione el tipo de revision"  formControlName="tiporevision" >
+            <ion-select-option *ngFor="let tipo of tiporevision.items" value="{{this.tipo.id}}">{{this.tipo.tiporevision}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo servicio</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="popover" placeholder="Seleccione el tipo de servicio"  formControlName="tiposervicio" >
+            <ion-select-option *ngFor="let tipo of tiposervicio.items" value="{{this.tipo.id}}">{{this.tipo.tiposervicio}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Vehiculo electrico</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select interface="popover" placeholder="El vehiculo es electrico?"  formControlName="electrico" >
+            <ion-select-option value="0">No</ion-select-option>
+            <ion-select-option value="1">Si</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Observacion</ion-label>
+      <ion-textarea formControlName="observacion"></ion-textarea>
+    </ion-item>
+    
+    <ion-button expand="block" [disabled]="recepcion.invalid" (click)="enviar()">Enviar</ion-button>
+
+  </form>
+
+</ion-content>
